@@ -1,9 +1,14 @@
+### Env
+linux
+
 ### Pre requisites:
 1. Install ffmpeg
 2. openalpr
+3. hadoop ( we used 2.8.0 here)
+4. python ()
 
 ### Instructions to separately run the python mapreduce
-run: 
+run: `$ shell.sh video.mp4` // whatever the name is
 
 
 ### OUTCOME :
