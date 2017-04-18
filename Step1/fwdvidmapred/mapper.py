@@ -8,4 +8,5 @@ for line in sys.stdin:
     line = line.strip()
     words = line.split()
     for word in words:
+        # call aplr to read each line
        print subprocess.check_output(['alpr','-c','us','-n','1',line]).decode('string_escape')
