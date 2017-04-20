@@ -32,4 +32,18 @@ mkdir -p $MAPRED_OUT_DIR
 rm -r $MAPRED_OUT_DIR
 $HADOOP_HOME/bin/hadoop jar $HADOOP_STRM_JAR -input $MAPRED_INP_DIR -output $MAPRED_OUT_DIR -mapper $BASEDIR/mapper.py -reducer $BASEDIR/reducer.py
 
-echo "Finished map/reduce! The output is available in $MAPRED_OUT_DIR"
+echo "Finished python map/reduce! The output is available in $MAPRED_OUT_DIR"
+
+JAVAMAPRED_CLASSES_DIR="$BASEDIR/license_classes"
+
+mkdir -p $JAVAMAPRED_CLASSES_DIR
+rm -r $JAVAMAPRED_CLASSES_DIR
+mkdir -p $JAVAMAPRED_CLASSES_DIR
+
+javac -classpath $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.8.0.jar -d $JAVAMAPRED_CLASSES_DIR $BASEDIR/LicenseMapper1.java $BASEDIR/LicenseReducer1.java $BASEDIR/LicenseDriver1.java
+
+jar cvf $BASEDIR/license.jar -C $JAVAMAPRED_CLASSES_DIR/ .
+
+$HADOOP_HOME/bin/hadoop jar $BASEDIR/license.jar $BASEDIR/U.CC.LicenseDriver1 $MAPRED_OUT_DIR $BASEDIR/licenselist_output_mm
+
+echo "Finished java map/reduce! The output is available in $BASEDIR/licenselist_output_mm"
