@@ -43,9 +43,9 @@ import java.util.List;
 	 String finalOutput = "{ \"LicensePlateRK\" : \""+plate_number+"\" , "+getVehicleSpecies(plate_number)+" }";
 	 
 	 
-	 System.out.println(finalOutput);
+	 //System.out.println(finalOutput);
 	 
-	 output.collect(new Text(plate_number+" : "), new Text(finalOutput) );
+	 output.collect(new Text(finalOutput) ,new Text(""));
 
   }
   
@@ -158,13 +158,17 @@ import java.util.List;
 	 */
 	private static VehicleSpecies getVehicleSpecies(String licensePlateNumber) {
 		// gwt same make model for the given licenseplate if repeats
+		//System.out.println("in method getVehicleSpecies  licensePlateNumber >>> "+licensePlateNumber);
 		try{
-			int bucket = licensePlateNumber.hashCode() % vehiclesSpeciesList.size();
+	    // This i.e abs(hash) could make say, 231 and -231 same, but let's see	
+		int bucket = Math.abs(licensePlateNumber.hashCode()) % vehiclesSpeciesList.size();
 		VehicleSpecies species = vehiclesSpeciesList.get(bucket);
+		System.out.println("Success >> "+licensePlateNumber.hashCode()+" >>> "+licensePlateNumber);
 		return species;
 			
 		}catch(Exception e){
-			System.out.println("L P N >>> "+licensePlateNumber.hashCode()+" size >>> " + vehiclesSpeciesList.size());
+			System.out.println("Exception >> "+e+" L P N >>> "+licensePlateNumber.hashCode()+"  >>> "+licensePlateNumber);
+			
 			
 		}	
 	return null;	

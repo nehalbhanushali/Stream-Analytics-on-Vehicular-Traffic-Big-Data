@@ -37,7 +37,7 @@ import java.lang.StringBuilder;
     // we are not interested in people who have no friends at all
     if(licenseMap.length == 4){
 
-    String plate_number = licenseMap[1];
+    String plate_number = licenseMap[1].trim(); // plate numbers apparantly have trailing spaces
     String confidence = licenseMap[3];
 	
 	output.collect(new Text(plate_number), new Text(confidence));
