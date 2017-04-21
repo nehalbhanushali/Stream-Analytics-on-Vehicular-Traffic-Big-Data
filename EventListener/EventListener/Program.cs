@@ -17,12 +17,13 @@ namespace EventListener
 
         static void Main(string[] args)
         {
+          
             MainAsync(args).GetAwaiter().GetResult();
         }
 
-        public static void LoadJson()
+        public static void LoadJson(String fullPath)
         {
-            using (StreamReader r = File.OpenText(@"C:\Amitha NEU\Engg Big Data\Final\SAJ\EntryStreamInput.json"))
+            using (StreamReader r = File.OpenText(fullPath))
             {
                 string json = r.ReadToEnd();
                 items = JsonConvert.DeserializeObject<List<VehicleItem>>(json);               
@@ -39,16 +40,38 @@ namespace EventListener
             };
 
             eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-
-            LoadJson();
-            await SendJsonObjectsToEventHub();
-
+            //watch();
+            FileSystemWatcher watcher = new FileSystemWatcher();
+            watcher.Path = @"C:\Amitha NEU\Engg Big Data\Final\SAJ\output";
+            watcher.NotifyFilter = NotifyFilters.LastWrite;
+            watcher.Filter = "*.*";
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+            // LoadJson();
+            //await SendJsonObjectsToEventHub();
             await eventHubClient.CloseAsync();
 
-            Console.WriteLine("Press ENTER to exit.");
+            //Console.WriteLine("Press Enter");
             Console.ReadLine();
         }
 
+        private static void watch()
+        {
+            FileSystemWatcher watcher = new FileSystemWatcher();
+            watcher.Path = @"C:\Amitha NEU\Engg Big Data\Final\SAJ\output";
+            watcher.NotifyFilter = NotifyFilters.LastWrite;
+            watcher.Filter = "*.*";
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+        }
+
+        private static async void OnChanged(object source, FileSystemEventArgs e)
+        {
+            Console.WriteLine("OnChanged");
+            String fullPath = e.FullPath;
+            LoadJson(fullPath);
+            await SendJsonObjectsToEventHub();
+        }
         // Creates an Event Hub client and sends 100 messages to the event hub.
         private static async Task SendJsonObjectsToEventHub()
         {
@@ -78,39 +101,6 @@ namespace EventListener
             }
 
         }
-        //private static async Task SendMessagesToEventHub(int numMessagesToSend)
-        //{
-        //    for (var i = 0; i < numMessagesToSend; i++)
-        //    {
-        //        try
-        //        {
-        //            // var message = $"Message {i}";
-
-        //            var j = i % 10;
-        //            var Manufacturer = "Manufacturer";
-        //            var ManufacturerValue = "Chevy";
-        //            var MakeAndModel = "MakeAndModelValue";
-        //            var MakeAndModelValue = "Bolt";
-        //            var licenseplatePK = "licenseplatePK";
-        //            var licenseplatePKValue = "200" + j;
-        //            var licenseplateRK = "licenseplateRK";
-        //            var licenseplateRKValue = "85234" + i;
-        //            var json = "{ \"" + Manufacturer + "\" : \"" + ManufacturerValue + "\" , \"" + MakeAndModel + "\" : \"" + MakeAndModelValue + "\"  , \"" + licenseplatePK + "\" : \"" + licenseplatePKValue + "\" , \"" + licenseplateRK + "\" : \"" + licenseplateRKValue + "\"}";
-        //            //  Console.WriteLine($"Sending message: {json}");
-
-
-        //            // await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(json)));
-
-        //        }
-        //        catch (Exception exception)
-        //        {
-        //            Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
-        //        }
-
-        //        await Task.Delay(10);
-        //    }
-
-        //    Console.WriteLine($"{numMessagesToSend} messages sent.");
-        //}
+       
     }
 }
