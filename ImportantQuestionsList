@@ -1,0 +1,16 @@
+WWhat is the problem we are trying to solve? ---Use Case details---
+Why did we pick this topic?
+What does stream analytics job do? When do we use it?
+Difference between stream data and reference data?
+Difference between partition key and row key?
+Difference between IOT hubs and event hubs?
+What is event hub listener doing?
+Why did we use library and not API for open ALPR? --- web calls affect speed, limited calls allowed, wanted to customize the code---
+What is the purpose of using Map Reduce to call open APLR in your project? what is being parallelized? 
+How are you dealing with duplicate license plate data?
+How are you getting make, model data based on car license plate?
+What are the challenges we faced on HD insight?
+What is CAV decals? complete concept and details.
+How have we calculated air pollution thru the data available?
+If all this data pre-exists and is static, what are you achieving thru your UC? ---city wise pollution at that point of time---
+Future scope of our project?
