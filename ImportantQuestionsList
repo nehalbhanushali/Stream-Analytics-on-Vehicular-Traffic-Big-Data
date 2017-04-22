@@ -1,6 +1,6 @@
 WWhat is the problem we are trying to solve? ---Use Case details---
 Why did we pick this topic?
-What does stream analytics job do? When do we use it?
+What does stream analytics job do? When do we use it? --- its PAAS, IAAS, software independent, robust,---
 Difference between stream data and reference data?
 Difference between partition key and row key?
 Difference between IOT hubs and event hubs?
@@ -14,3 +14,4 @@ What is CAV decals? complete concept and details.
 How have we calculated air pollution thru the data available?
 If all this data pre-exists and is static, what are you achieving thru your UC? ---city wise pollution at that point of time---
 Future scope of our project?
+How is this a big data project ? ---handling large amount of data, and data engineering---
