@@ -98,7 +98,7 @@ import java.util.List;
 
 		@Override
 		public String toString() {
-			return   "\"Year\" : \""+ year + "\" , \"Manufacturer\" : \"" + manufacturer + "\" , \"MakeAndModel\" : \""+ makeAndModel + "\" , \", \"FuelType\" : \""+ fuelType + "\"";
+			return   "\"Year\" : \""+ year + "\" , \"Manufacturer\" : \"" + manufacturer + "\" , \"MakeAndModel\" : \""+ makeAndModel + "\" , \"FuelType\" : \""+ fuelType + "\"";
 		}
 
 	}
