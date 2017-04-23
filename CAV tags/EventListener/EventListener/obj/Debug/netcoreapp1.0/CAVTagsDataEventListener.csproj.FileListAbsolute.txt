@@ -1,0 +1,9 @@
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\bin\Debug\netcoreapp1.0\CAVTagsDataEventListener.deps.json
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\bin\Debug\netcoreapp1.0\CAVTagsDataEventListener.runtimeconfig.json
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\bin\Debug\netcoreapp1.0\CAVTagsDataEventListener.runtimeconfig.dev.json
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\bin\Debug\netcoreapp1.0\CAVTagsDataEventListener.dll
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\bin\Debug\netcoreapp1.0\CAVTagsDataEventListener.pdb
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\obj\Debug\netcoreapp1.0\CAVTagsDataEventListener.csprojResolveAssemblyReference.cache
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\obj\Debug\netcoreapp1.0\CAVTagsDataEventListener.AssemblyInfo.cs
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\obj\Debug\netcoreapp1.0\CAVTagsDataEventListener.dll
+C:\Amitha NEU\Engg Big Data\Final\CAV tags\EventListener\EventListener\obj\Debug\netcoreapp1.0\CAVTagsDataEventListener.pdb
