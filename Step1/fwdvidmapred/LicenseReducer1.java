@@ -29,9 +29,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
  public class LicenseReducer1 extends MapReduceBase implements Reducer<Text, Text, Text, Text>
+
 {
-   private static List<VehicleSpecies> vehiclesSpeciesList = readModelsFromCSV("CAVtags.txt");
+   	private static String my_cwd = "/home/rutika/CAVtags.txt";
+
+	//private static String my_cwd =  "/home/CAVtags.txt";
+
+   private static List<VehicleSpecies> vehiclesSpeciesList = readModelsFromCSV(my_cwd);
 
    public void reduce(Text key, Iterator<Text> values,
                       OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
@@ -40,7 +46,7 @@ import java.util.List;
 	 //System.out.println(">>>>>>>>>>>>>>>> "+plate_number);
 
 	 
-	 String finalOutput = "{ \"LicensePlateRK\" : \""+plate_number+"\" , "+getVehicleSpecies(plate_number)+" }";
+	 String finalOutput = "{ \"LicensePlate\" : \""+plate_number+"\" , "+getVehicleSpecies(plate_number)+" }";
 	 
 	 
 	 //System.out.println(finalOutput);
@@ -92,14 +98,14 @@ import java.util.List;
 
 		@Override
 		public String toString() {
-			return   "\"LicensePlatePK\" : \""+ year + "\" , \"manufacturer\" : \"" + manufacturer + "\" , \"makeAndModel\" : \""+ makeAndModel + "\" , \"exhaustStandard\" : \""+ exhaustStandard + "\" , \"fuelType\" : \""+ fuelType + "\" , \"decalColour\" : \"" + decalColour+"\"";
+			return   "\"Year\" : \""+ year + "\" , \"Manufacturer\" : \"" + manufacturer + "\" , \"MakeAndModel\" : \""+ makeAndModel + "\" , \", \"FuelType\" : \""+ fuelType + "\"";
 		}
 
 	}
   
  
   private static List<VehicleSpecies> readModelsFromCSV(String fileName) {
-	  //System.out.println("in readModelsFromCSV fileName >>>> "+fileName);
+	  System.out.println("in readModelsFromCSV fileName >>>> "+fileName);
 	  List<VehicleSpecies> vehicles = new ArrayList<>(); 
 	  Path pathToFile = Paths.get(fileName); 
 	  // create an instance of BufferedReader 
@@ -158,7 +164,7 @@ import java.util.List;
 	 */
 	private static VehicleSpecies getVehicleSpecies(String licensePlateNumber) {
 		// gwt same make model for the given licenseplate if repeats
-		//System.out.println("in method getVehicleSpecies  licensePlateNumber >>> "+licensePlateNumber);
+		System.out.println("in method getVehicleSpecies  licensePlateNumber >>> "+licensePlateNumber+" div by size >> "+vehiclesSpeciesList.size());
 		try{
 	    // This i.e abs(hash) could make say, 231 and -231 same, but let's see	
 		int bucket = Math.abs(licensePlateNumber.hashCode()) % vehiclesSpeciesList.size();
