@@ -68,7 +68,7 @@ do
   jar cvf $BASEDIR/license.jar -C $JAVAMAPRED_CLASSES_DIR/ .
   rm -r $BASEDIR/licenselist_output_mm
 
-  $HADOOP_HOME/bin/hadoop jar $BASEDIR/license.jar U.CC.LicenseDriver1 $MAPRED_OUT_DIR $BASEDIR/$VIDEO_FILE/licenselist_output_mm
+  $HADOOP_HOME/bin/hadoop jar $BASEDIR/license.jar U.CC.LicenseDriver1 $MAPRED_OUT_DIR $BASEDIR/java_MR_output/$VIDEO_FILE/licenselist_output_mm
 
   echo "Finished java map/reduce! The output is available in $BASEDIR/licenselist_output_mm"
 

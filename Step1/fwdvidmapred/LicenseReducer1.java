@@ -46,7 +46,7 @@ import java.util.List;
 	 //System.out.println(">>>>>>>>>>>>>>>> "+plate_number);
 
 	 
-	 String finalOutput = "{ \"LicensePlate\" : \""+plate_number+"\" , "+getVehicleSpecies(plate_number)+" }";
+	 String finalOutput = "{ \"LicensePlate\" : \""+plate_number+"\" , "+getVehicleSpecies(plate_number)+" },";
 	 
 	 
 	 //System.out.println(finalOutput);
