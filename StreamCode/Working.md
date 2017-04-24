@@ -21,6 +21,13 @@
 - [ ] datetime in query for when spotted
 - [ ] `DELETE FROM tablename` to avoid caching problem
 
+## PowerBI to-do
+- [ ] y-rating, x-cities, 
+- [ ] blank city, clean
+
+## Azure to-do
+- [ ] unit scale increase
+
 
 ## MR todo
 
