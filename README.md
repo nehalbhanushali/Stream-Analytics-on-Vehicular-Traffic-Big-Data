@@ -11,6 +11,8 @@
 ```
 NOTE : Please be careful about the path
 
-2. Phase 2 
+2. Phase 2 can be executed in linux using mono and windows using visual studio. Update the input file path to point at Phase1 output files.
+
+
 
 
