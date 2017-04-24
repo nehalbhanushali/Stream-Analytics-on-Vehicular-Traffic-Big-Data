@@ -17,8 +17,13 @@
 ```
 NOTE : Please be careful about the path
 
-2. Phase 2 can be executed in linux using mono and windows using visual studio. Update the input file path to point at Phase1 output files.
+2. Phase 2 can be executed in linux using mono and windows using visual studio. Update the `/input-file-path/` in the event listener `EntryStream/Program.cs` code to point at Phase1 output files `../java_MR_output/*`.
 
+NOTE : The event listeners must be started before completion of Phase1 as it watches the files being dumped in `../java_MR_output/*`.
+
+The Event-hub-listener parses input json and sends it to the Stream Analytics Job (NOTE : This is also already running on the cloud)
+
+3. The final output can be seen as storage tables using Azure storage explorer and visualised in PowerBI dashboards.
 
 
 
