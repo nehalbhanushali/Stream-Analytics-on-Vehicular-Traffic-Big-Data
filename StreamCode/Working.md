@@ -19,6 +19,7 @@
 - [x] notags
 - [ ] pk, rk part
 - [ ] datetime in query for when spotted
+- [ ] `DELETE FROM tablename` to avoid caching problem
 
 
 ## MR todo
