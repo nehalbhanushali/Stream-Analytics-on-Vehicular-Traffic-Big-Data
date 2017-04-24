@@ -1,51 +1,21 @@
 /*
-Query for cav tags to Output table
+Query for missing cars to Output table
 */
-
-SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,CTD.ExhaustStandard,CTD.FuelType,
-case 
-when CTD.DecalColour is null then 'No tags found'
-else CTD.DecalColour
-end as 'DecalColour' ,CTD.Rating,CTD.MPG_gas,CTD.CO2_gpm,ES.City
+SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK
 INTO cavTagsOutputTable
 FROM EntryStream as ES 
 JOIN cavTagsData as CTD 
-ON (ES.Manufacturer = CTD.Manufacturer and ES.MakeAndModel = CTD.MakeAndModel and ES.FuelType = CTD.FuelType)
+ON (ES.Manufacturer = CTD.Manufacturer and ES.MakeAndModel = CTD.MakeAndModel)
 AND DATEDIFF (minute, ES, CTD ) BETWEEN 0 AND 15
 
-
-/*
-Query for cav tags to PowerBI table
-*/
-SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,CTD.ExhaustStandard,CTD.FuelType,
-case 
-when CTD.DecalColour is null then 'No tags found'
-else CTD.DecalColour
-end as 'DecalColour',CTD.Rating,CTD.MPG_gas,CTD.CO2_gpm,ES.City
-INTO cavTagsPBI
-FROM EntryStream as ES 
-JOIN cavTagsData as CTD 
-ON (ES.Manufacturer = CTD.Manufacturer and ES.MakeAndModel = CTD.MakeAndModel and ES.FuelType = CTD.FuelType)
-AND DATEDIFF (minute, ES, CTD ) BETWEEN 0 AND 15
 
 /*
 Query for missing cars to Output table
 */
-SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,MCD.RegistrationNumber,MCD.CaseId,MCD.Owner,ES.City
+SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK
 INTO licenseOutputTable
 FROM EntryStream as ES 
 JOIN missingCarsData as MCD
 ON (ES.LicensePlate = MCD.LicensePlate)
 AND DATEDIFF (minute, ES, MCD ) BETWEEN 0 AND 15
-
-
-/*Query for missing cars to Power BI output
-*/
-SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,MCD.RegistrationNumber,MCD.CaseId,MCD.Owner,ES.City
-INTO missingCarsPBI
-FROM EntryStream as ES 
-JOIN missingCarsData as MCD
-ON (ES.LicensePlate = MCD.LicensePlate)
-AND DATEDIFF (minute, ES, MCD ) BETWEEN 0 AND 15
-
 
