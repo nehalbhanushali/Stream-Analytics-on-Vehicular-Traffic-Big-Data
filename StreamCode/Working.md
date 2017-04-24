@@ -10,8 +10,10 @@
   Result : output with delay
   
    #### Other Issues : License output table doe not get refreshed, has cache.
-4.    
+4. #### Query changes 
+   - [x] Notags  
 
+5. #### Query changes 
 
 ## Query To-do
 - [x] notags
