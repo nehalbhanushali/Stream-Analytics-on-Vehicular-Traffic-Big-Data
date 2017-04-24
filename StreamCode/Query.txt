@@ -3,7 +3,7 @@ Query for cav tags to Output table
 */
 
 SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,
-CTD.ExhaustStandard,CTD.Rating,CTD.MPG,CTD.CO2,CTD.FuelType, ES.City,
+CTD.ExhaustStandard,CTD.Rating,CTD.MPG,CTD.CO2,CTD.FuelType, ES.City,ES.currentDateTime,
 case 
  when CTD.DecalColour is null then 'No tags found'
  else CTD.DecalColour
@@ -17,7 +17,7 @@ AND DATEDIFF (minute, ES, CTD ) BETWEEN 0 AND 15
 /*Power BI cavTags PBI output*/
 
 SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,
-CTD.ExhaustStandard,CTD.Rating,CTD.MPG,CTD.CO2,CTD.FuelType, ES.City,
+CTD.ExhaustStandard,CTD.Rating,CTD.MPG,CTD.CO2,CTD.FuelType, ES.City,ES.currentDateTime,
 case 
  when CTD.DecalColour is null then 'No tags found'
  else CTD.DecalColour
@@ -32,7 +32,7 @@ AND DATEDIFF (minute, ES, CTD ) BETWEEN 0 AND 15
 Query for missing cars to Output table
 */
 SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,
-MCD.CaseId,MCD.Owner,MCD.RegistrationNumber,ES.City,
+MCD.CaseId,MCD.Owner,MCD.RegistrationNumber,ES.City,ES.currentDateTime,
 case 
  when MCD.DecalColour is null then 'No tags found'
  else MCD.DecalColour
@@ -46,7 +46,7 @@ AND DATEDIFF (minute, ES, MCD ) BETWEEN 0 AND 15
 
 /*Power BI missing cars PBI output*/
 SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK,
-MCD.CaseId,MCD.Owner,MCD.RegistrationNumber,ES.City,
+MCD.CaseId,MCD.Owner,MCD.RegistrationNumber,ES.City,ES.currentDateTime,
 case 
  when MCD.DecalColour is null then 'No tags found'
  else MCD.DecalColour
