@@ -1,5 +1,0 @@
-$ javac -classpath ../hadoop-0.20.2-core.jar -d license_classes licenseMapper1.java licenseReducer1.java licenseDriver1.java
-
-$ jar cvf license.jar -C license_classes/ .
-
-$ ../bin/hadoop jar license.jar U.CC.LicenseDriver1 licenseconf_input licenselist_output_mm
