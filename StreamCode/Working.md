@@ -14,6 +14,6 @@
 
 
 ## To-do
-
+- [ ] notags
 - [ ] pk, rk part
 - [ ] datetime in query for when spotted
