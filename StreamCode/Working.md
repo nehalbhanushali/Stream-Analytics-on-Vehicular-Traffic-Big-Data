@@ -13,7 +13,12 @@
 4.    
 
 
-## To-do
+## Query To-do
 - [ ] notags
 - [ ] pk, rk part
 - [ ] datetime in query for when spotted
+
+
+## MR todo
+
+- [ ] notags in car info csv
