@@ -25,7 +25,7 @@ The Event-hub-listener parses input json and sends it to the Stream Analytics Jo
 
 3. The final output can be seen as storage tables using Azure storage explorer and visualised in PowerBI dashboards.
 
-[Link to PowerBI dashboards]
+[Link to PowerBI dashboards](https://app.powerbi.com/view?r=eyJrIjoiMzk0ZmM3NzMtMDg4Ny00NTRhLThhNjktY2IwYTg1M2Q1ZDcyIiwidCI6IjZhYmZjNzNmLWRhNjQtNDEzNy05ZjlmLTE1ZmFhZTU2ZjY4NSIsImMiOjN9)
 
 
 
