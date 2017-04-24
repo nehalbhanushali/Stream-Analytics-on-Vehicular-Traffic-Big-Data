@@ -1,5 +1,5 @@
 /*
-Query for missing cars to Output table
+Query for CAV tags to Output table
 */
 SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK
 INTO cavTagsOutputTable
