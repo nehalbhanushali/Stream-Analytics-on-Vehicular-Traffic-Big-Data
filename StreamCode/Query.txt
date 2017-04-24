@@ -1,0 +1,26 @@
+/*
+Query for missing cars to Output table
+SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK
+INTO cavTagsOutputTable
+FROM EntryStream as ES 
+JOIN cavTagsData as CTD 
+ON (ES.Manufacturer = CTD.Manufacturer and ES.MakeAndModel = CTD.MakeAndModel)
+AND DATEDIFF (minute, ES, CTD ) BETWEEN 0 AND 15
+*/
+
+Select * into licenseInputTable from missingCarsData;
+
+
+Select * into testOutput from EntryStream;
+
+
+
+/*
+Query for missing cars to Output table
+*/
+SELECT ES.LicensePlate, ES.Manufacturer, ES.MakeAndModel,ES.LicensePlatePK,ES.LicensePlateRK
+INTO licenseOutputTable
+FROM EntryStream as ES 
+JOIN missingCarsData as MCD
+ON (ES.LicensePlate = MCD.LicensePlate)
+AND DATEDIFF (minute, ES, MCD ) BETWEEN 0 AND 15
